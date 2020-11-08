@@ -17,7 +17,6 @@ class ProductView(APIView):
         else:
             return Response(ProductSerializer(Product.objects.all().filter(p_type__name=r_type), many=True).data)
 
-
     def post(self, request):
         serializer = ProductSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
